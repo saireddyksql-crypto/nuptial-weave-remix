@@ -429,7 +429,7 @@ function Hero() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
 
   return (
-    <section ref={ref} className="relative min-h-screen overflow-hidden bg-parchment paper-texture">
+    <section ref={ref} className="relative min-h-screen overflow-hidden bg-parchment/55 paper-texture">
       {/* frame */}
       <div className="pointer-events-none absolute inset-4 md:inset-8 border border-gold/30" />
       <div className="pointer-events-none absolute inset-[22px] md:inset-[42px] border border-gold/15" />
@@ -592,7 +592,7 @@ function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 function Invocation() {
   return (
-    <section className="relative py-24 md:py-36 px-6 bg-parchment paper-texture">
+    <section className="relative py-24 md:py-36 px-6 bg-parchment/55 paper-texture">
       <div className="relative z-10 mx-auto max-w-2xl text-center">
         <Reveal>
           <p className="font-script text-5xl md:text-6xl text-maroon-deep drop-shadow-sm">Shubham astu</p>
@@ -615,7 +615,7 @@ function Invocation() {
 
 function Families() {
   return (
-    <section className="relative py-24 md:py-32 px-6 bg-ivory paper-texture">
+    <section className="relative py-24 md:py-32 px-6 bg-ivory/55 paper-texture">
       <div className="relative z-10 mx-auto max-w-4xl">
         <Reveal>
           <div className="text-center">
@@ -688,7 +688,7 @@ function Families() {
 
 function CountdownSection() {
   return (
-    <section className="relative py-24 md:py-32 px-6 bg-ivory paper-texture">
+    <section className="relative py-24 md:py-32 px-6 bg-ivory/55 paper-texture">
       <div className="relative z-10 mx-auto max-w-3xl text-center">
         <Reveal>
           <p className="font-sc text-xs md:text-sm uppercase tracking-[0.5em] text-maroon-deep text-readable">
@@ -732,7 +732,7 @@ const EVENTS = [
 
 function Events() {
   return (
-    <section className="relative overflow-hidden py-24 md:py-36 px-6 bg-parchment paper-texture">
+    <section className="relative overflow-hidden py-24 md:py-36 px-6 bg-parchment/55 paper-texture">
       <motion.img
         src={cornerBottom}
         alt=""
@@ -799,7 +799,7 @@ function Events() {
 
 function Venue() {
   return (
-    <section className="relative overflow-hidden py-28 md:py-36 px-6 bg-ivory paper-texture">
+    <section className="relative overflow-hidden py-28 md:py-36 px-6 bg-ivory/55 paper-texture">
       <div className="relative z-10 mx-auto max-w-2xl text-center">
 
         <Reveal>
@@ -876,7 +876,7 @@ function Venue() {
 
 function Blessings() {
   return (
-    <section id="blessings" className="relative py-24 md:py-36 px-6 bg-parchment paper-texture">
+    <section id="blessings" className="relative py-24 md:py-36 px-6 bg-parchment/55 paper-texture">
       <div className="relative z-10 mx-auto max-w-2xl text-center">
         <Reveal>
           <TinyOrn className="mx-auto" />
