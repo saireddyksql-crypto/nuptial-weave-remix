@@ -63,13 +63,13 @@ function MandalaBackground() {
   const items = useMemo(
     () => [
       // Corners — anchored so they hug edges on every viewport
-      { top: "-14%", left: "-14%",  size: "clamp(220px, 42vw, 560px)", dur: 160, rev: false, o: 0.10, color: "text-gold" },
-      { top: "-12%", right: "-14%", size: "clamp(200px, 38vw, 500px)", dur: 200, rev: true,  o: 0.09, color: "text-maroon" },
-      { bottom: "-14%", left: "-12%", size: "clamp(220px, 40vw, 540px)", dur: 220, rev: true,  o: 0.08, color: "text-gold-dark" },
-      { bottom: "-16%", right: "-14%", size: "clamp(240px, 44vw, 600px)", dur: 180, rev: false, o: 0.10, color: "text-gold" },
+      { top: "-14%", left: "-14%",  size: "clamp(220px, 42vw, 560px)", dur: 160, rev: false, o: 0.42, color: "text-gold" },
+      { top: "-12%", right: "-14%", size: "clamp(200px, 38vw, 500px)", dur: 200, rev: true,  o: 0.38, color: "text-maroon" },
+      { bottom: "-14%", left: "-12%", size: "clamp(220px, 40vw, 540px)", dur: 220, rev: true,  o: 0.34, color: "text-gold-dark" },
+      { bottom: "-16%", right: "-14%", size: "clamp(240px, 44vw, 600px)", dur: 180, rev: false, o: 0.42, color: "text-gold" },
       // Mid accents — kept small & very faint, away from center reading column
-      { top: "40%", left: "-10%",  size: "clamp(160px, 26vw, 360px)", dur: 240, rev: false, o: 0.06, color: "text-maroon" },
-      { top: "55%", right: "-10%", size: "clamp(160px, 26vw, 360px)", dur: 260, rev: true,  o: 0.06, color: "text-gold" },
+      { top: "40%", left: "-10%",  size: "clamp(160px, 26vw, 360px)", dur: 240, rev: false, o: 0.26, color: "text-maroon" },
+      { top: "55%", right: "-10%", size: "clamp(160px, 26vw, 360px)", dur: 260, rev: true,  o: 0.26, color: "text-gold" },
     ],
     [],
   );
