@@ -49,10 +49,10 @@ function Mandala({ className = "", opacity = 1 }: { className?: string; opacity?
 function MandalaBackground() {
   const items = useMemo(
     () => [
-      { top: "-10%", left: "-15%", size: 620, dur: 140, rev: false, o: 0.08 },
-      { top: "35%", left: "60%", size: 520, dur: 180, rev: true, o: 0.07 },
-      { top: "72%", left: "-10%", size: 560, dur: 200, rev: false, o: 0.06 },
-      { top: "8%", left: "68%", size: 380, dur: 160, rev: true, o: 0.07 },
+      { top: "-10%", left: "-15%", size: 620, dur: 140, rev: false, o: 0.4 },
+      { top: "35%", left: "60%", size: 520, dur: 180, rev: true, o: 0.32 },
+      { top: "72%", left: "-10%", size: 560, dur: 200, rev: false, o: 0.3 },
+      { top: "8%", left: "68%", size: 380, dur: 160, rev: true, o: 0.34 },
     ],
     [],
   );

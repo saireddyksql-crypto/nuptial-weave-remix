@@ -63,13 +63,13 @@ function MandalaBackground() {
   const items = useMemo(
     () => [
       // Corners — anchored so they hug edges on every viewport
-      { top: "-14%", left: "-14%",  size: "clamp(220px, 42vw, 560px)", dur: 160, rev: false, o: 0.10, color: "text-gold" },
-      { top: "-12%", right: "-14%", size: "clamp(200px, 38vw, 500px)", dur: 200, rev: true,  o: 0.09, color: "text-maroon" },
-      { bottom: "-14%", left: "-12%", size: "clamp(220px, 40vw, 540px)", dur: 220, rev: true,  o: 0.08, color: "text-gold-dark" },
-      { bottom: "-16%", right: "-14%", size: "clamp(240px, 44vw, 600px)", dur: 180, rev: false, o: 0.10, color: "text-gold" },
+      { top: "-14%", left: "-14%",  size: "clamp(220px, 42vw, 560px)", dur: 160, rev: false, o: 0.75, color: "text-gold" },
+      { top: "-12%", right: "-14%", size: "clamp(200px, 38vw, 500px)", dur: 200, rev: true,  o: 0.65, color: "text-maroon" },
+      { bottom: "-14%", left: "-12%", size: "clamp(220px, 40vw, 540px)", dur: 220, rev: true,  o: 0.6, color: "text-gold-dark" },
+      { bottom: "-16%", right: "-14%", size: "clamp(240px, 44vw, 600px)", dur: 180, rev: false, o: 0.75, color: "text-gold" },
       // Mid accents — kept small & very faint, away from center reading column
-      { top: "40%", left: "-10%",  size: "clamp(160px, 26vw, 360px)", dur: 240, rev: false, o: 0.06, color: "text-maroon" },
-      { top: "55%", right: "-10%", size: "clamp(160px, 26vw, 360px)", dur: 260, rev: true,  o: 0.06, color: "text-gold" },
+      { top: "40%", left: "-10%",  size: "clamp(160px, 26vw, 360px)", dur: 240, rev: false, o: 0.45, color: "text-maroon" },
+      { top: "55%", right: "-10%", size: "clamp(160px, 26vw, 360px)", dur: 260, rev: true,  o: 0.45, color: "text-gold" },
     ],
     [],
   );
@@ -158,11 +158,13 @@ function MonthCalendar() {
                         animate={{ opacity: [0.55, 1, 0.55], scale: [0.9, 1.08, 0.9] }}
                         transition={{ duration: 2.4, ease: "easeInOut", repeat: Infinity }}
                       />
-                      <svg
+                      <motion.svg
                         viewBox="0 0 60 56"
                         className="pointer-events-none absolute inset-0 h-full w-full text-gold-dark"
                         fill="none"
                         aria-hidden
+                        animate={{ scale: [1, 1.09, 1] }}
+                        transition={{ duration: 1.6, ease: "easeInOut", repeat: Infinity }}
                       >
                         <motion.path
                           d="M30 50 C 10 38, 4 22, 14 12 C 22 5, 30 14, 30 20 C 30 14, 38 5, 46 12 C 56 22, 50 38, 30 50 Z"
@@ -171,12 +173,22 @@ function MonthCalendar() {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           strokeDasharray="3 3.4"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          whileInView={{ pathLength: 1, opacity: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1.6, ease: "easeInOut", delay: 0.3 }}
+                          animate={{ strokeDashoffset: [0, -12.8] }}
+                          transition={{ duration: 1.2, ease: "linear", repeat: Infinity }}
                         />
-                      </svg>
+                        <motion.path
+                          d="M30 50 C 10 38, 4 22, 14 12 C 22 5, 30 14, 30 20 C 30 14, 38 5, 46 12 C 56 22, 50 38, 30 50 Z"
+                          stroke="currentColor"
+                          strokeWidth="2.2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          pathLength={1}
+                          strokeDasharray="0.28 0.72"
+                          animate={{ strokeDashoffset: [0, -1] }}
+                          transition={{ duration: 2.8, ease: "linear", repeat: Infinity }}
+                        />
+                      </motion.svg>
+
                     </>
                   )}
                   <span className="relative z-10">{d}</span>
@@ -417,7 +429,7 @@ function Hero() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
 
   return (
-    <section ref={ref} className="relative min-h-screen overflow-hidden bg-parchment paper-texture">
+    <section ref={ref} className="relative min-h-screen overflow-hidden bg-parchment/55 paper-texture">
       {/* frame */}
       <div className="pointer-events-none absolute inset-4 md:inset-8 border border-gold/30" />
       <div className="pointer-events-none absolute inset-[22px] md:inset-[42px] border border-gold/15" />
@@ -580,7 +592,7 @@ function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 function Invocation() {
   return (
-    <section className="relative py-24 md:py-36 px-6 bg-parchment paper-texture">
+    <section className="relative py-24 md:py-36 px-6 bg-parchment/55 paper-texture">
       <div className="relative z-10 mx-auto max-w-2xl text-center">
         <Reveal>
           <p className="font-script text-5xl md:text-6xl text-maroon-deep drop-shadow-sm">Shubham astu</p>
@@ -603,7 +615,7 @@ function Invocation() {
 
 function Families() {
   return (
-    <section className="relative py-24 md:py-32 px-6 bg-ivory paper-texture">
+    <section className="relative py-24 md:py-32 px-6 bg-ivory/55 paper-texture">
       <div className="relative z-10 mx-auto max-w-4xl">
         <Reveal>
           <div className="text-center">
@@ -676,7 +688,7 @@ function Families() {
 
 function CountdownSection() {
   return (
-    <section className="relative py-24 md:py-32 px-6 bg-ivory paper-texture">
+    <section className="relative py-24 md:py-32 px-6 bg-ivory/55 paper-texture">
       <div className="relative z-10 mx-auto max-w-3xl text-center">
         <Reveal>
           <p className="font-sc text-xs md:text-sm uppercase tracking-[0.5em] text-maroon-deep text-readable">
@@ -720,7 +732,7 @@ const EVENTS = [
 
 function Events() {
   return (
-    <section className="relative overflow-hidden py-24 md:py-36 px-6 bg-parchment paper-texture">
+    <section className="relative overflow-hidden py-24 md:py-36 px-6 bg-parchment/55 paper-texture">
       <motion.img
         src={cornerBottom}
         alt=""
@@ -787,7 +799,7 @@ function Events() {
 
 function Venue() {
   return (
-    <section className="relative overflow-hidden py-28 md:py-36 px-6 bg-ivory paper-texture">
+    <section className="relative overflow-hidden py-28 md:py-36 px-6 bg-ivory/55 paper-texture">
       <div className="relative z-10 mx-auto max-w-2xl text-center">
 
         <Reveal>
@@ -864,7 +876,7 @@ function Venue() {
 
 function Blessings() {
   return (
-    <section id="blessings" className="relative py-24 md:py-36 px-6 bg-parchment paper-texture">
+    <section id="blessings" className="relative py-24 md:py-36 px-6 bg-parchment/55 paper-texture">
       <div className="relative z-10 mx-auto max-w-2xl text-center">
         <Reveal>
           <TinyOrn className="mx-auto" />
