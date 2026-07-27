@@ -158,11 +158,13 @@ function MonthCalendar() {
                         animate={{ opacity: [0.55, 1, 0.55], scale: [0.9, 1.08, 0.9] }}
                         transition={{ duration: 2.4, ease: "easeInOut", repeat: Infinity }}
                       />
-                      <svg
+                      <motion.svg
                         viewBox="0 0 60 56"
                         className="pointer-events-none absolute inset-0 h-full w-full text-gold-dark"
                         fill="none"
                         aria-hidden
+                        animate={{ scale: [1, 1.09, 1] }}
+                        transition={{ duration: 1.6, ease: "easeInOut", repeat: Infinity }}
                       >
                         <motion.path
                           d="M30 50 C 10 38, 4 22, 14 12 C 22 5, 30 14, 30 20 C 30 14, 38 5, 46 12 C 56 22, 50 38, 30 50 Z"
@@ -171,12 +173,22 @@ function MonthCalendar() {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                           strokeDasharray="3 3.4"
-                          initial={{ pathLength: 0, opacity: 0 }}
-                          whileInView={{ pathLength: 1, opacity: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ duration: 1.6, ease: "easeInOut", delay: 0.3 }}
+                          animate={{ strokeDashoffset: [0, -12.8] }}
+                          transition={{ duration: 1.2, ease: "linear", repeat: Infinity }}
                         />
-                      </svg>
+                        <motion.path
+                          d="M30 50 C 10 38, 4 22, 14 12 C 22 5, 30 14, 30 20 C 30 14, 38 5, 46 12 C 56 22, 50 38, 30 50 Z"
+                          stroke="currentColor"
+                          strokeWidth="2.2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          pathLength={1}
+                          strokeDasharray="0.28 0.72"
+                          animate={{ strokeDashoffset: [0, -1] }}
+                          transition={{ duration: 2.8, ease: "linear", repeat: Infinity }}
+                        />
+                      </motion.svg>
+
                     </>
                   )}
                   <span className="relative z-10">{d}</span>
