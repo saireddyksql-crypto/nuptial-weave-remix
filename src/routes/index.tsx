@@ -6,8 +6,27 @@ import ganeshaImg from "@/assets/ganesha.png";
 import mandalaImg from "@/assets/mandala.png";
 
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "Meghana Raj & Sai Pradyumna — Wedding Invitation" },
+      {
+        name: "description",
+        content:
+          "With the blessings of Lord Ganesha — join us as Meghana Raj weds Sai Pradyumna on 27th August 2026 at U.B.R. Convention, Kurnool.",
+      },
+      { property: "og:title", content: "Meghana Raj & Sai Pradyumna — Wedding Invitation" },
+      {
+        property: "og:description",
+        content:
+          "With the blessings of Lord Ganesha — join us as Meghana Raj weds Sai Pradyumna on 27th August 2026 at U.B.R. Convention, Kurnool.",
+      },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: SplashPage,
 });
+
 
 const SPLASH_KEY = "mohanapu-splash-seen";
 
