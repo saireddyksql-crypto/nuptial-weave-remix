@@ -51,8 +51,9 @@ function FloralBackground() {
         backgroundImage: `url("${floralPattern.url}")`,
         backgroundRepeat: "repeat",
         backgroundSize: "360px auto",
-        opacity: 0.9,
+        opacity: 1,
         mixBlendMode: "multiply",
+        filter: "saturate(1.5) contrast(1.15)",
       }}
     />
   );
@@ -73,7 +74,7 @@ function MonthCalendar() {
   const weddingDay = 27;
 
   return (
-    <div className="relative mx-auto max-w-md rounded-sm border border-gold/40 bg-ivory/35 p-6 md:p-8 shadow-[var(--shadow-elegant)] backdrop-blur-sm">
+    <div className="relative mx-auto max-w-md rounded-sm border border-gold/40 bg-ivory/20 p-6 md:p-8 shadow-[var(--shadow-elegant)] backdrop-blur-sm">
       <span className="pointer-events-none absolute inset-x-6 top-0 h-px gold-hairline" />
       <span className="pointer-events-none absolute inset-x-6 bottom-0 h-px gold-hairline" />
 
@@ -238,7 +239,7 @@ function Countdown() {
     <div className="grid grid-cols-4 gap-2 md:gap-5">
       {items.map((it) => (
         <div key={it.label} className="group relative">
-          <div className="relative overflow-hidden border border-gold/40 bg-ivory/35 px-2 py-5 md:px-6 md:py-7 text-center backdrop-blur-sm">
+          <div className="relative overflow-hidden border border-gold/40 bg-ivory/20 px-2 py-5 md:px-6 md:py-7 text-center backdrop-blur-sm">
             <span className="pointer-events-none absolute inset-x-3 top-0 h-px gold-hairline" />
             <span className="pointer-events-none absolute inset-x-3 bottom-0 h-px gold-hairline" />
             <div className="font-display text-4xl md:text-6xl font-bold text-ink tabular-nums drop-shadow-sm">
@@ -389,7 +390,7 @@ function Hero() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
 
   return (
-    <section ref={ref} className="relative min-h-screen overflow-hidden bg-parchment/35 paper-texture">
+    <section ref={ref} className="relative min-h-screen overflow-hidden bg-parchment/20 paper-texture">
       {/* frame */}
       <div className="pointer-events-none absolute inset-4 md:inset-8 border border-gold/30" />
       <div className="pointer-events-none absolute inset-[22px] md:inset-[42px] border border-gold/15" />
@@ -552,7 +553,7 @@ function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 function Invocation() {
   return (
-    <section className="relative py-24 md:py-36 px-6 bg-parchment/35 paper-texture">
+    <section className="relative py-24 md:py-36 px-6 bg-parchment/20 paper-texture">
       <div className="relative z-10 mx-auto max-w-2xl text-center">
         <Reveal>
           <p className="font-script text-5xl md:text-6xl text-maroon-deep drop-shadow-sm">Shubham astu</p>
@@ -575,7 +576,7 @@ function Invocation() {
 
 function Families() {
   return (
-    <section className="relative py-24 md:py-32 px-6 bg-ivory/35 paper-texture">
+    <section className="relative py-24 md:py-32 px-6 bg-ivory/20 paper-texture">
       <div className="relative z-10 mx-auto max-w-4xl">
         <Reveal>
           <div className="text-center">
@@ -648,7 +649,7 @@ function Families() {
 
 function CountdownSection() {
   return (
-    <section className="relative py-24 md:py-32 px-6 bg-ivory/35 paper-texture">
+    <section className="relative py-24 md:py-32 px-6 bg-ivory/20 paper-texture">
       <div className="relative z-10 mx-auto max-w-3xl text-center">
         <Reveal>
           <p className="font-sc text-xs md:text-sm uppercase tracking-[0.5em] text-maroon-deep text-readable">
@@ -692,7 +693,7 @@ const EVENTS = [
 
 function Events() {
   return (
-    <section className="relative overflow-hidden py-24 md:py-36 px-6 bg-parchment/35 paper-texture">
+    <section className="relative overflow-hidden py-24 md:py-36 px-6 bg-parchment/20 paper-texture">
       <motion.img
         src={cornerBottom}
         alt=""
@@ -727,7 +728,7 @@ function Events() {
                       className={`relative inline-block w-full max-w-md rounded-sm border p-7 text-left transition-all duration-500 ${
                         ev.highlight
                           ? "border-gold bg-gradient-to-br from-ivory to-parchment-deep/70 shadow-[var(--shadow-elegant)]"
-                          : "border-gold/30 bg-ivory/35 hover:border-gold/70"
+                          : "border-gold/30 bg-ivory/20 hover:border-gold/70"
                       }`}
                     >
                       {ev.highlight && (
@@ -759,7 +760,7 @@ function Events() {
 
 function Venue() {
   return (
-    <section className="relative overflow-hidden py-28 md:py-36 px-6 bg-ivory/35 paper-texture">
+    <section className="relative overflow-hidden py-28 md:py-36 px-6 bg-ivory/20 paper-texture">
       <div className="relative z-10 mx-auto max-w-2xl text-center">
 
         <Reveal>
@@ -836,7 +837,7 @@ function Venue() {
 
 function Blessings() {
   return (
-    <section id="blessings" className="relative py-24 md:py-36 px-6 bg-parchment/35 paper-texture">
+    <section id="blessings" className="relative py-24 md:py-36 px-6 bg-parchment/20 paper-texture">
       <div className="relative z-10 mx-auto max-w-2xl text-center">
         <Reveal>
           <TinyOrn className="mx-auto" />
