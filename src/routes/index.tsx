@@ -1,9 +1,10 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { motion } from "motion/react";
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 
 import ganeshaImg from "@/assets/ganesha.png";
 import FloralPatternBackground from "@/components/FloralPatternBackground";
+import MandalaAura from "@/components/MandalaAura";
 
 
 export const Route = createFileRoute("/")({
@@ -78,20 +79,14 @@ function SplashPage() {
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           className="relative"
         >
-          <div className="relative h-52 w-52 md:h-64 md:w-64">
-            <div
-              className="absolute inset-0 rounded-full blur-2xl opacity-60"
-              style={{
-                background:
-                  "radial-gradient(closest-side, oklch(0.82 0.12 78 / 0.55), transparent 70%)",
-              }}
-            />
+          <div className="relative h-64 w-64 md:h-80 md:w-80">
+            <MandalaAura />
             <img
               src={ganeshaImg}
               alt="Lord Ganesha"
               width={1024}
               height={1024}
-              className="relative h-full w-full object-contain select-none drop-shadow-[0_4px_10px_rgba(120,60,30,0.15)]"
+              className="relative z-10 h-full w-full scale-[0.72] object-contain select-none drop-shadow-[0_4px_10px_rgba(120,60,30,0.15)]"
               draggable={false}
             />
           </div>
