@@ -8,7 +8,7 @@ import { Calendar, Clock, MapPin, Heart, Phone, Mail, Instagram, Youtube, Share 
 import cornerTop from "@/assets/corner-top.png";
 import cornerBottom from "@/assets/corner-bottom.png";
 import ganeshaImg from "@/assets/ganesha.png";
-import mandalaImg from "@/assets/mandala.png";
+import floralPattern from "@/assets/floral-pattern.webp.asset.json";
 import musicAsset from "@/assets/seetha-kalyanam.mp3.asset.json";
 
 
@@ -42,59 +42,18 @@ function Ganesha({ className = "" }: { className?: string }) {
   );
 }
 
-function Mandala({ className = "", opacity = 1 }: { className?: string; opacity?: number }) {
+function FloralBackground() {
   return (
-    <img
-      src={mandalaImg}
-      alt=""
+    <div
+      className="pointer-events-none fixed inset-0 z-[0]"
       aria-hidden
-      width={1024}
-      height={1024}
-      loading="lazy"
-      className={`select-none ${className}`}
-      style={{ opacity, filter: "drop-shadow(0 0 24px oklch(0.68 0.12 78 / 0.25))" }}
-      draggable={false}
+      style={{
+        backgroundImage: `url("${floralPattern.url}")`,
+        backgroundRepeat: "repeat",
+        backgroundSize: "360px auto",
+        opacity: 0.5,
+      }}
     />
-  );
-}
-
-
-function MandalaBackground() {
-  const items = useMemo(
-    () => [
-      // Corners — anchored so they hug edges on every viewport
-      { top: "-14%", left: "-14%",  size: "clamp(220px, 42vw, 560px)", dur: 160, rev: false, o: 0.75, color: "text-gold" },
-      { top: "-12%", right: "-14%", size: "clamp(200px, 38vw, 500px)", dur: 200, rev: true,  o: 0.65, color: "text-maroon" },
-      { bottom: "-14%", left: "-12%", size: "clamp(220px, 40vw, 540px)", dur: 220, rev: true,  o: 0.6, color: "text-gold-dark" },
-      { bottom: "-16%", right: "-14%", size: "clamp(240px, 44vw, 600px)", dur: 180, rev: false, o: 0.75, color: "text-gold" },
-      // Mid accents — kept small & very faint, away from center reading column
-      { top: "40%", left: "-10%",  size: "clamp(160px, 26vw, 360px)", dur: 240, rev: false, o: 0.45, color: "text-maroon" },
-      { top: "55%", right: "-10%", size: "clamp(160px, 26vw, 360px)", dur: 260, rev: true,  o: 0.45, color: "text-gold" },
-    ],
-    [],
-  );
-  return (
-    <div className="pointer-events-none fixed inset-0 z-[0] overflow-hidden" aria-hidden>
-      {items.map((m, i) => (
-        <motion.div
-          key={i}
-          className={`absolute ${m.color}`}
-          style={{ top: m.top, left: (m as any).left, right: (m as any).right, bottom: (m as any).bottom, width: m.size, height: m.size }}
-          animate={{
-            rotate: m.rev ? [0, -360] : [0, 360],
-            y: [0, -10, 0, 10, 0],
-            opacity: [m.o * 0.7, m.o, m.o * 0.75],
-          }}
-          transition={{
-            rotate: { duration: m.dur, ease: "linear", repeat: Infinity },
-            y: { duration: 20 + i * 2, ease: "easeInOut", repeat: Infinity },
-            opacity: { duration: 12 + i, ease: "easeInOut", repeat: Infinity },
-          }}
-        >
-          <Mandala className="h-full w-full" />
-        </motion.div>
-      ))}
-    </div>
   );
 }
 
@@ -429,7 +388,7 @@ function Hero() {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.08]);
 
   return (
-    <section ref={ref} className="relative min-h-screen overflow-hidden bg-parchment/55 paper-texture">
+    <section ref={ref} className="relative min-h-screen overflow-hidden bg-parchment/70 paper-texture">
       {/* frame */}
       <div className="pointer-events-none absolute inset-4 md:inset-8 border border-gold/30" />
       <div className="pointer-events-none absolute inset-[22px] md:inset-[42px] border border-gold/15" />
@@ -592,7 +551,7 @@ function Reveal({ children, delay = 0 }: { children: React.ReactNode; delay?: nu
 
 function Invocation() {
   return (
-    <section className="relative py-24 md:py-36 px-6 bg-parchment/55 paper-texture">
+    <section className="relative py-24 md:py-36 px-6 bg-parchment/70 paper-texture">
       <div className="relative z-10 mx-auto max-w-2xl text-center">
         <Reveal>
           <p className="font-script text-5xl md:text-6xl text-maroon-deep drop-shadow-sm">Shubham astu</p>
@@ -615,7 +574,7 @@ function Invocation() {
 
 function Families() {
   return (
-    <section className="relative py-24 md:py-32 px-6 bg-ivory/55 paper-texture">
+    <section className="relative py-24 md:py-32 px-6 bg-ivory/70 paper-texture">
       <div className="relative z-10 mx-auto max-w-4xl">
         <Reveal>
           <div className="text-center">
@@ -688,7 +647,7 @@ function Families() {
 
 function CountdownSection() {
   return (
-    <section className="relative py-24 md:py-32 px-6 bg-ivory/55 paper-texture">
+    <section className="relative py-24 md:py-32 px-6 bg-ivory/70 paper-texture">
       <div className="relative z-10 mx-auto max-w-3xl text-center">
         <Reveal>
           <p className="font-sc text-xs md:text-sm uppercase tracking-[0.5em] text-maroon-deep text-readable">
@@ -732,7 +691,7 @@ const EVENTS = [
 
 function Events() {
   return (
-    <section className="relative overflow-hidden py-24 md:py-36 px-6 bg-parchment/55 paper-texture">
+    <section className="relative overflow-hidden py-24 md:py-36 px-6 bg-parchment/70 paper-texture">
       <motion.img
         src={cornerBottom}
         alt=""
@@ -799,7 +758,7 @@ function Events() {
 
 function Venue() {
   return (
-    <section className="relative overflow-hidden py-28 md:py-36 px-6 bg-ivory/55 paper-texture">
+    <section className="relative overflow-hidden py-28 md:py-36 px-6 bg-ivory/70 paper-texture">
       <div className="relative z-10 mx-auto max-w-2xl text-center">
 
         <Reveal>
@@ -876,7 +835,7 @@ function Venue() {
 
 function Blessings() {
   return (
-    <section id="blessings" className="relative py-24 md:py-36 px-6 bg-parchment/55 paper-texture">
+    <section id="blessings" className="relative py-24 md:py-36 px-6 bg-parchment/70 paper-texture">
       <div className="relative z-10 mx-auto max-w-2xl text-center">
         <Reveal>
           <TinyOrn className="mx-auto" />
@@ -1030,7 +989,7 @@ function Invitation() {
 
   return (
     <main className="relative overflow-hidden">
-      <MandalaBackground />
+      <FloralBackground />
       <FloralBackdrop />
       <Petals />
       <Hero />
