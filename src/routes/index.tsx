@@ -3,7 +3,8 @@ import { motion } from "motion/react";
 import { useEffect, useMemo } from "react";
 
 import ganeshaImg from "@/assets/ganesha.png";
-import mandalaImg from "@/assets/mandala.png";
+import FloralPatternBackground from "@/components/FloralPatternBackground";
+
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -30,54 +31,10 @@ export const Route = createFileRoute("/")({
 
 const SPLASH_KEY = "mohanapu-splash-seen";
 
-function Mandala({ className = "", opacity = 1 }: { className?: string; opacity?: number }) {
-  return (
-    <img
-      src={mandalaImg}
-      alt=""
-      aria-hidden
-      width={1024}
-      height={1024}
-      loading="lazy"
-      className={`select-none ${className}`}
-      style={{ opacity, filter: "drop-shadow(0 0 24px oklch(0.68 0.12 78 / 0.25))" }}
-      draggable={false}
-    />
-  );
+function MandalaBackground() {
+  return <FloralPatternBackground />;
 }
 
-function MandalaBackground() {
-  const items = useMemo(
-    () => [
-      { top: "-10%", left: "-15%", size: 620, dur: 140, rev: false, o: 0.4 },
-      { top: "35%", left: "60%", size: 520, dur: 180, rev: true, o: 0.32 },
-      { top: "72%", left: "-10%", size: 560, dur: 200, rev: false, o: 0.3 },
-      { top: "8%", left: "68%", size: 380, dur: 160, rev: true, o: 0.34 },
-    ],
-    [],
-  );
-  return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-      {items.map((m, i) => (
-        <motion.div
-          key={i}
-          className="absolute text-gold"
-          style={{ top: m.top, left: m.left, width: m.size, height: m.size }}
-          animate={{
-            rotate: m.rev ? [0, -360] : [0, 360],
-            opacity: [m.o * 0.7, m.o, m.o * 0.75],
-          }}
-          transition={{
-            rotate: { duration: m.dur, ease: "linear", repeat: Infinity },
-            opacity: { duration: 10 + i, ease: "easeInOut", repeat: Infinity },
-          }}
-        >
-          <Mandala className="h-full w-full" />
-        </motion.div>
-      ))}
-    </div>
-  );
-}
 
 function TinyOrn({ className = "" }: { className?: string }) {
   return (
@@ -121,14 +78,6 @@ function SplashPage() {
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           className="relative"
         >
-          <motion.div
-            className="absolute inset-0 -m-6 text-gold"
-            animate={{ rotate: [0, 360] }}
-            transition={{ duration: 90, ease: "linear", repeat: Infinity }}
-            aria-hidden
-          >
-            <Mandala className="h-full w-full" opacity={0.35} />
-          </motion.div>
           <div className="relative h-52 w-52 md:h-64 md:w-64">
             <div
               className="absolute inset-0 rounded-full blur-2xl opacity-60"
