@@ -8,7 +8,7 @@ import { Calendar, Clock, MapPin, Heart, Phone, Mail, Instagram, Youtube, Share 
 import cornerTop from "@/assets/corner-top.png";
 import cornerBottom from "@/assets/corner-bottom.png";
 import ganeshaImg from "@/assets/ganesha.png";
-import floralPattern from "@/assets/floral-pattern.webp.asset.json";
+import FloralPatternBackground from "@/components/FloralPatternBackground";
 import musicAsset from "@/assets/seetha-kalyanam.mp3.asset.json";
 
 
@@ -43,21 +43,9 @@ function Ganesha({ className = "" }: { className?: string }) {
 }
 
 function FloralBackground() {
-  return (
-    <div
-      className="pointer-events-none fixed inset-0 z-[0]"
-      aria-hidden
-      style={{
-        backgroundImage: `url("${floralPattern.url}")`,
-        backgroundRepeat: "repeat",
-        backgroundSize: "360px auto",
-        opacity: 1,
-        mixBlendMode: "multiply",
-        filter: "saturate(1.5) contrast(1.15)",
-      }}
-    />
-  );
+  return <FloralPatternBackground />;
 }
+
 
 /* ---------- month calendar ---------- */
 
