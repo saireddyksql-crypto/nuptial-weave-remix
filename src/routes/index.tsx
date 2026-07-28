@@ -78,14 +78,6 @@ function SplashPage() {
           transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
           className="relative"
         >
-          <motion.div
-            className="absolute inset-0 -m-6 text-gold"
-            animate={{ rotate: [0, 360] }}
-            transition={{ duration: 90, ease: "linear", repeat: Infinity }}
-            aria-hidden
-          >
-            <Mandala className="h-full w-full" opacity={0.35} />
-          </motion.div>
           <div className="relative h-52 w-52 md:h-64 md:w-64">
             <div
               className="absolute inset-0 rounded-full blur-2xl opacity-60"
