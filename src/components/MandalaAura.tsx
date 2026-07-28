@@ -16,8 +16,8 @@ export default function MandalaAura({ className = "" }: { className?: string }) 
         const rad = (a * Math.PI) / 180;
         const dist = i % 2 ? 46 : 40;
         return {
-          x: 50 + Math.cos(rad) * dist,
-          y: 50 + Math.sin(rad) * dist,
+          x: Math.round((50 + Math.cos(rad) * dist) * 1000) / 1000,
+          y: Math.round((50 + Math.sin(rad) * dist) * 1000) / 1000,
           d: 2.4 + (i % 4) * 0.6,
           delay: (i % 6) * 0.5,
           s: i % 3 === 0 ? 1.1 : 0.7,
